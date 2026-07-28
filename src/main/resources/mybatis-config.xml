@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <typeAliases>
+        <typeAlias type="org.scoula.security.account.domain.AuthVO" alias="AuthVO"/>
+        <typeAlias type="org.scoula.security.account.domain.MemberVO" alias="MemberVO"/>
+        <typeAlias type="org.scoula.board.domain.BoardVO" alias="BoardVO"/>
+        <typeAlias type="org.scoula.board.domain.BoardAttachmentVO" alias="BoardAttachmentVO"/>
+        <typeAlias type="org.scoula.travel.domain.TravelVO" alias="TravelVO"/>
+        <typeAlias type="org.scoula.travel.domain.TravelImageVO" alias="TravelImageVO"/>
+    </typeAliases>
+</configuration>
