@@ -24,10 +24,13 @@ jobs:
           distribution: 'corretto'
 
       - name: Create application.properties
-        if: ${{ secrets.APPLICATION_PROPERTIES != '' }}
         run: |
-          mkdir -p src/main/resources
-          echo "${{ secrets.APPLICATION_PROPERTIES }}" > src/main/resources/application.properties
+          if [ -n "$APP_PROPS" ]; then
+            mkdir -p src/main/resources
+            echo "$APP_PROPS" > src/main/resources/application.properties
+          fi
+        env:
+          APP_PROPS: ${{ secrets.APPLICATION_PROPERTIES }}
 
       - name: Build WAR
         run: |
