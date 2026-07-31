@@ -1,4 +1,5 @@
-﻿USE scoula_db;
+﻿-- USE scoula_db;
+USE myapp;
 
 DROP TABLE IF EXISTS tbl_travel_image;
 DROP TABLE IF EXISTS tbl_travel;

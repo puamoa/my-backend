@@ -1,12 +1,15 @@
 -- 필요에 따라 주석 해제 후 동작하기
-drop database if exists scoula_db;
+-- drop database if exists scoula_db;
+drop database if exists myapp;
 -- drop user if exists 'scoula'@'%';
 
-create database scoula_db;
+-- create database scoula_db;
+create database myapp;
 -- create user 'scoula'@'%' identified by '1234';
 -- grant all privileges on scoula_db.* to 'scoula'@'%';
 
-USE scoula_db;
+-- USE scoula_db;
+USE myapp;
 DROP TABLE IF EXISTS tbl_board_attachment;
 
 DROP TABLE IF EXISTS tbl_board;

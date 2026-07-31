@@ -1,4 +1,5 @@
-USE scoula_db;
+-- USE scoula_db;
+USE myapp;
 drop table if exists tbl_member_auth;
 
 -- 사용자 정보 테이블
