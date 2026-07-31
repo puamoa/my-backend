@@ -23,6 +23,12 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
+      - name: Create application.properties
+        if: ${{ secrets.APPLICATION_PROPERTIES != '' }}
+        run: |
+          mkdir -p src/main/resources
+          echo "${{ secrets.APPLICATION_PROPERTIES }}" > src/main/resources/application.properties
+
       - name: Build WAR
         run: |
           chmod +x ./gradlew
