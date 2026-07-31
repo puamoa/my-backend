@@ -23,15 +23,6 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Ensure Gradle Wrapper
-        run: |
-          if [ ! -f gradle/wrapper/gradle-wrapper.properties ]; then
-            gradle wrapper
-          fi
-
       - name: Build WAR
         run: |
           chmod +x ./gradlew
