@@ -49,7 +49,7 @@ jobs:
             --instance-ids "${{ secrets.EC2_INSTANCE_ID }}" \
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=[
-              "aws s3 cp s3://${{ secrets.S3_DEPLOY_BUCKET }}/app.war /home/ec2-user/app/app.war",
+              "aws s3 cp s3://${{ secrets.S3_DEPLOY_BUCKET }}/app.war /home/ec2-user/app/app.war --quiet",
               "rm -rf /opt/tomcat/webapps/ROOT /opt/tomcat/webapps/ROOT.war",
               "cp /home/ec2-user/app/app.war /opt/tomcat/webapps/ROOT.war",
               "chown -R ec2-user:ec2-user /opt/tomcat/webapps/ROOT.war",
