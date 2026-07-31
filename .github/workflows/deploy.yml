@@ -25,21 +25,15 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-      # 3. Gradle 캐시
-      - name: Cache Gradle packages
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: ${{ runner.os }}-gradle-
+      # 3. Gradle 설정 (캐시 + wrapper 자동 처리)
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
 
       # 4. Gradle 빌드
       - name: Build with Gradle
         run: |
           chmod +x ./gradlew
-          ./gradlew clean bootJar
+          ./gradlew clean bootJar -x test
 
       # 5. AWS 자격 증명 설정
       - name: Configure AWS credentials
