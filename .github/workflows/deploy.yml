@@ -49,11 +49,11 @@ jobs:
             --instance-ids "${{ secrets.EC2_INSTANCE_ID }}" \
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=[
-              "aws s3 cp s3://${{ secrets.S3_DEPLOY_BUCKET }}/app.war /home/ec2-user/app/app.war",
-              "rm -rf /opt/tomcat/webapps/ROOT /opt/tomcat/webapps/ROOT.war",
-              "cp /home/ec2-user/app/app.war /opt/tomcat/webapps/ROOT.war",
-              "sudo systemctl restart tomcat",
-              "sleep 15",
+              "su - ec2-user -c \"aws s3 cp s3://${{ secrets.S3_DEPLOY_BUCKET }}/app.war /home/ec2-user/app/app.war\"",
+              "su - ec2-user -c \"rm -rf /opt/tomcat/webapps/ROOT /opt/tomcat/webapps/ROOT.war\"",
+              "su - ec2-user -c \"cp /home/ec2-user/app/app.war /opt/tomcat/webapps/ROOT.war\"",
+              "systemctl restart tomcat",
+              "sleep 20",
               "curl -sf http://localhost:8080/ || exit 1"
             ]' \
             --query "Command.CommandId" \
